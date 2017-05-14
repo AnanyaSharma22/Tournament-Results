@@ -18,7 +18,7 @@ CREATE TABLE matches (
 	);
 
 CREATE OR REPLACE VIEW rankings AS
-	SELECT p.p_id , p.p_name, p.total_wins AS total_wins, count(m.m_id) AS p_rank
-	FROM player AS p LEFT JOIN matches AS m
+	SELECT p.p_id , p.p_name, count(m.m_id) AS p_rank
+	FROM players AS p LEFT JOIN matches AS m
 	ON p.p_id = m.winner OR p.p_id = m.loser
 GROUP BY p.p_id;
