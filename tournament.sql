@@ -9,7 +9,6 @@
 CREATE TABLE players (
 	p_id SERIAL PRIMARY KEY,
 	p_name VARCHAR(25) NOT NULL,
-        total_wins integer DEFAULT 0	
 	);
 
 CREATE TABLE matches (
