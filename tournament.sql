@@ -6,7 +6,7 @@
 -- You can write comments in this file by starting them with two dashes, like
 -- these lines here.
 
-CREATE TABLE player (
+CREATE TABLE players (
 	p_id SERIAL PRIMARY KEY,
 	p_name VARCHAR(25) NOT NULL,
         total_wins integer DEFAULT 0	
