@@ -31,7 +31,7 @@ def deletePlayers():
 
     cur = database.cursor()
 
-    cur.execute("DELETE FROM player")
+    cur.execute("DELETE FROM players")
 
     database.commit()
 
@@ -43,7 +43,7 @@ def countPlayers():
 
     cur = database.cursor()
 
-    cur.execute("SELECT count(*) FROM player")
+    cur.execute("SELECT count(*) FROM players")
 
     outcome = cur.fetchall()
 
@@ -60,12 +60,12 @@ def registerPlayer(name):
     Args:
       name: the player's full name (need not be unique).
     """
- 
+
     database = connect()
 
     cur = database.cursor()
 
-    cur.execute("INSERT into player (name) VALUES (%s)",
+    cur.execute("INSERT into players (p_name) VALUES (%s)",
               (name,))
 
     database.commit()
@@ -89,7 +89,7 @@ def playerStandings():
 
     cur = database.cursor()
 
-    cur.execute("SELECT * from rankings order by total_wins desc")
+    cur.execute("SELECT * from rankings")
 
     result = cur.fetchall()
 
@@ -104,7 +104,6 @@ def reportMatch(winner, loser):
       winner:  the id number of the player who won
       loser:  the id number of the player who lost
     """
-   
     database = connect()
 
     cur = DB.cursor()
